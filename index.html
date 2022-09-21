@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniandes Login</title>
+    <style>
+        body{
+            align-content: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        img{
+            width:200px; 
+            margin: 80px auto;
+            display: flex;
+            clear: both;
+        }
+        table, tr {
+            width: 500px;
+            margin: auto;
+            box-sizing: border-box;
+            background: #cccccc;
+            border: 2px solid black;
+            text-align: left;
+            padding: 20px 100px;
+        }
+        .text{
+            padding: 0 8px;
+            text-align: right;
+        }
+        input{
+            padding: 6px;
+            margin: 10px 0;
+            width: 400px;
+            border: 2px solid black;
+        }       
+        .btn td{
+            align-items: stretch;
+            padding: 0;
+            /* margin:0px; */
+            
+        }
+        .btn input{
+            width: 100px;
+            cursor: pointer;
+            box-shadow: 5px 4px 2px rgb(78, 78, 78);
+        }
+        .btn a{
+            color: #3333cc;
+            font-weight: bold;            
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <table>
+            <img src="https://agriperfiles.agri-d.net/file/n43090/uniandes.png" width="150px" alt="logo" />
+            <h1 style="text-align:center ;">INGRESO</h1>
+            <form name="" action="" onsubmit=""> </form>
+            <tr>
+                <td class="text">
+                    <label  for="mail" autocapitalize="">Correo</label>
+                </td>
+                <td>    
+                    <input type="email" id="mail" required>
+                </td>                
+            </tr>
+            <tr>
+                <td class="text">
+                    <label for="psswd">Contraseña</label>
+                </td>    
+                <td>
+                    <input type="password" id="psswd" minlength="6" >
+                </td>
+            </tr>
+            
+            
+            <tr class="btn">
+                <td></td>
+                <td>
+                    <label for="entrarbtn"  ></label>
+                    <input type="button" id="entrarbtn" value="ENTRAR">
+                    &nbsp;&nbsp; &nbsp;&nbsp;
+                    <a href="" >¿Olvidaste tu contraseña?</a>
+                    
+                </td>
+                
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
