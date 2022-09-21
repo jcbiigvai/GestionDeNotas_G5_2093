@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacténos</title>
+    <style>
+        body{
+            background-color: rgb(245, 245, 215);
+        }
+        h1{
+            margin: 4rem 0em 1em 4em;
+        }
+    .contacto{
+        margin: 0rem 4rem 0 8rem ;
+    }
+    form {
+        width: 500px;
+        margin: 2rem auto;
+    }
+
+        form > * {
+        width: 500px;
+        margin:auto;
+    }
+        label{
+            margin-bottom: 2px;
+
+    }
+        input {
+        padding: 8px;
+        margin-bottom: 16px ;
+        border: 2px solid black;
+    }
+        textarea{
+            width: 800px;
+            height: 200px;
+            resize: none;
+            border: 2px solid black;
+    }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Ponte en contacto con nosotros para saber información sobre nuestros cursos</h1>
+    
+    <form class="contacto" name="formContacto" role="form">
+        <label for="nom" >Nombre</label>
+        <input id="nom" type="text" maxlength="12">
+        <label for="tel" >Celular</label>
+        <input id="tel" type="tel">
+        <label for="mail" >Correo</label>
+        <input id="mail" type="email">
+        <label for="mssg" >Escríbenos</label>
+        <textarea id="mssg" wrap="hard"> </textarea>
+
+    </form>
+    </div>
+    
+</body>
+</html>
