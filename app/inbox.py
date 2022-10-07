@@ -17,11 +17,12 @@ def getDB():
 @login_required
 def show():
     db = get_db()
+    userId = g.user['id']
     messages = db.execute(
-        'SELECT * FROM messages;'
+        'SELECT * FROM message WHERE from_id = ? or to_id = ?',(userId,userId)
     ).fetchall()
 
-    return render_template('auth/register.html', messages=messages)
+    return render_template('inbox/show.html', messages=messages)
 
 
 @bp.route('/send', methods=('GET', 'POST'))
@@ -29,12 +30,12 @@ def show():
 def send():
     if request.method == 'POST':        
         from_id = g.user['id']
-        to_username = g.username['username']
-        subject = g.subject['subject']
-        body = g.body['body']
+        to_username = request.form['to']
+        subject = request.form['subject']
+        body = request.form['body']
 
         db = get_db()
-        
+       
         if not to_username:
             flash('To field is required')
             return render_template('inbox/send.html')
@@ -51,18 +52,19 @@ def send():
         userto = None 
         
         userto = db.execute(
-            "INSERT INTO user (g.userto) VALUES ('%s')" % (to_username,)
+            "SELECT * FROM user WHERE username = ?", (to_username,)
         ).fetchone()
         
         if userto is None:
             error = 'Recipient does not exist'
-        
+     
         if error is not None:
             flash(error)
         else:
-            db = db.cursor()
+            db = get_db()
             db.execute(
-                'SELECT * FROM user WHERE username = "+user+"',(g.user['id'], userto['id'], subject, body)
+                "INSERT INTO message (from_id,to_id,subject,body) VALUES (?,?,?,?)",
+                (g.user['id'], userto['id'], subject, body)
             )
             db.commit()
 
